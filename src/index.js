@@ -14,6 +14,7 @@ class WebpackRTLPlugin {
       filename: false,
       options: {},
       plugins: [],
+      hooks: [],
       ...options
     }
   }
@@ -36,7 +37,7 @@ class WebpackRTLPlugin {
           let rtlSource
 
           if (match) {
-            rtlSource = rtlcss.process(baseSource, this.options.options, this.options.plugins)
+            rtlSource = rtlcss.process(baseSource, this.options.options, this.options.plugins, this.options.hooks)
 
             if (this.options.filename instanceof Array && this.options.filename.length === 2) {
               filename = asset.replace(this.options.filename[0], this.options.filename[1])
